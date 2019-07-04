@@ -1,0 +1,19 @@
+---
+# Playbook to Correctly Subscribe OCP nodes
+
+- name: Subscribe OCP Nodes
+  hosts: all
+  gather_facts: no
+
+  vars:
+    ocp_base_repos:
+        - rhel-7-server-rpms
+        - rhel-7-server-extras-rpms
+        - rhel-7-server-ansible-2.6-rpms
+        - rhel-7-server-ose-3.11-rpms
+
+  tasks:
+  - name: ""[RHSM] Add OCP Subscriptions"
+    rhsm_repository:
+      name: "{{ ocp_base_repos }}"
+      state: enabled

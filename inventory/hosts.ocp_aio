@@ -1,6 +1,7 @@
 # Ansible OCP All-In-One Inventory File
 # See https://github.com/openshift/openshift-ansible/tree/release-3.11/inventory
 
+# Standard OSEv3 host group
 [OSEv3:children]
 masters
 nodes
@@ -12,7 +13,7 @@ openshift_deployment_type=enterprise
 
 openshift_portal_net=172.30.0.0/16
 
-# AIO host likely doesn't meet the minimum requirements
+# AIO host probably doesn't meet the minimum requirements
 openshift_disable_check=disk_availability,memory_availability
 
 openshift_node_groups=[{'name': 'node-config-all-in-one', 'labels': ['node-role.kubernetes.io/master=true', 'node-role.kubernetes.io/infra=true', 'node-role.kubernetes.io/compute=true']}]
