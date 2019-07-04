@@ -13,7 +13,7 @@
         - rhel-7-server-ose-3.11-rpms
 
   tasks:
-  - name: ""[RHSM] Add OCP Subscriptions"
+  - name: "[RHSM] Add OCP Subscriptions"
     rhsm_repository:
       name: "{{ ocp_base_repos }}"
       state: enabled
