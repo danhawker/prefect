@@ -1,0 +1,17 @@
+---
+# Playbook to seed Ansible Tower
+
+- name: "[Ansible Tower] Cultivate Tower"
+  #hosts: tag_Role_Tower
+  hosts: tower
+  gather_facts: no
+
+  vars:
+    cultivator_tower_api: https://morzeny.spectre.portalvein.io
+    cultivator_tower_username: admin
+    cultivator_tower_password: b3halt3r
+    cultivator_tower_validate_certs: false
+    ansible_python_interpreter: '{{ cultivator_virtualenv_path }}/bin/python'
+
+  roles:
+  - role: tower-cultivator

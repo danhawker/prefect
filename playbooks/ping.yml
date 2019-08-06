@@ -2,7 +2,7 @@
 # Quick playbook to Ping Hosts
 - name: Ping Hosts Example
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   tasks:
   - name: Ping Host
     ping:
