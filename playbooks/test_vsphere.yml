@@ -1,0 +1,22 @@
+# Playbook to Test VMware Connectivity and Features
+
+- name: Check vSphere Connectivity
+  hosts: localhost
+
+  tasks:
+    - name: "Check Connectivity to vSphere"
+      vmware_cluster_facts:
+        hostname: '{{ vcenter_server }}'
+        port: "{{ vcenter_port }}"
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        datacenter: '{{ vcenter_datacenter }}'
+        validate_certs: no
+      delegate_to: localhost
+      register: vsphere_facts
+      tags: [test]
+
+    - name: "Show Me The Money!!"
+      debug:
+        msg: "This is the output of {{ vsphere_facts }}"
+      tags: [test]
